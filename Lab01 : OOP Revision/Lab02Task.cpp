@@ -50,12 +50,12 @@ int main(){
    student2.display();
 
 
-   cout<<"After modification : "<<endl;
    student2.setAttributes("Saad","24-08-25",99.8);
    student2.display();
 
    student1.display();
    
     return 0;
+
 
 }
