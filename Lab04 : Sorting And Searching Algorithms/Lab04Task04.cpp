@@ -2,6 +2,23 @@
 #include<iostream>
 using namespace std;
 
+int binarySearch(int arr[], int size, int key){
+    int start = 0;
+    int end = size- 1;
+    while(start <= end){
+        int mid = start +(end -start)/2;
+          if(arr[mid]==key){
+            return mid;
+          }
+          if(arr[mid]<key){
+            start = mid +1;
+          }else{
+            end = mid-1;
+          }
+    }
+    return -1;
+}
+
 void InsertionSort(int arr[], int size){
 for(int i =1;i<size;i++){
     int current = arr[i];
@@ -39,5 +56,16 @@ int main(){
    cout<<endl;
    cout<<"After sorting: "<<endl;
    display(arr,size);
+   cout<<endl;
+   cout<<"Enter the number you want to search in array"<<endl;
+   int key;
+   cin>>key;
+   int result = binarySearch(arr,size,key);
+   if(result){
+    cout<<"Key Found"<<endl;
+   }else{
+    cout<<"Key not found"<<endl;
+   }
+
     return 0;
 }
