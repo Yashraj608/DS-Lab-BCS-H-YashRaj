@@ -62,6 +62,11 @@ void printStack(){
         cout<<endl;
      }
 }
+
+int size(){
+
+    return top +1;
+}
 };
 
 int main(){
@@ -78,5 +83,6 @@ int main(){
     cout<<"Peek element is : " <<s.peek()<<endl;
     s.pop();
     s.printStack();
+    cout<<"The size of Stack is : "<<s.size()<<endl;
         return 0;
 }
