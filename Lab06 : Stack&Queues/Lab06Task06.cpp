@@ -1,18 +1,18 @@
-#include <iostream>
-#include <stack>
-#include <algorithm>
-#include <cctype>
-#include <cmath>
+#include<iostream>
+#include<stack>
+#include<algorithm>
+#include<cctype>
+#include<cmath>
 using namespace std;
 
-int precedence(char op) {
+int precedence(char op){
     if (op == '^') return 3;
     if (op == '*' || op == '/') return 2;
     if (op == '+' || op == '-') return 1;
     return -1;
 }
 
-string infixToPostfix(string infix) {
+string infixToPostfix(string infix){
     stack<char> s;
     string result;
     for (int i = 0; i < infix.size(); i++) {
@@ -35,16 +35,16 @@ string infixToPostfix(string infix) {
             s.push(c);
         }
     }
-    while (!s.empty()) {
+    while (!s.empty()){
         result += s.top();
         s.pop();
     }
     return result;
 }
 
-string infixToPrefix(string infix) {
+string infixToPrefix(string infix){
     reverse(infix.begin(), infix.end());
-    for (int i = 0; i < infix.size(); i++) {
+    for (int i=0; i < infix.size();i++){
         if (infix[i] == '(') infix[i] = ')';
         else if (infix[i] == ')') infix[i] = '(';
     }
@@ -53,9 +53,9 @@ string infixToPrefix(string infix) {
     return postfix;
 }
 
-int evaluatePrefix(string expr) {
+int evaluatePrefix(string expr){
     stack<int> s;
-    for (int i = expr.size() - 1; i >= 0; i--) {
+    for (int i = expr.size() - 1; i >= 0; i--){
         char c = expr[i];
         if (isdigit(c)) s.push(c - '0');
         else {
@@ -73,7 +73,7 @@ int evaluatePrefix(string expr) {
     return s.top();
 }
 
-int main() {
+int main(){
     string infix;
     cout << "Enter infix expression: ";
     cin >> infix;
@@ -84,3 +84,4 @@ int main() {
 
     return 0;
 }
+
